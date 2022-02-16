@@ -5,6 +5,7 @@ import ClassDetail from './pages/ClassDetail/ClassDetail';
 import Creator from './pages/Creator/Creator';
 import Nav from './components/Nav/Nav';
 import Search from './pages/Search/Search';
+import Login from './pages/Login/Login';
 
 const Router = () => {
   return (
@@ -15,6 +16,7 @@ const Router = () => {
         <Route path="/class" element={<ClassDetail />} />
         <Route path="/creator" element={<Creator />} />
         <Route path="/search" element={<Search />} />
+        <Route path="/login" element={<Login />} />
       </Routes>
     </BrowserRouter>
   );
