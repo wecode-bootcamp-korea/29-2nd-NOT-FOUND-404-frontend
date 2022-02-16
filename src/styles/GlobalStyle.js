@@ -1,5 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
 import reset from 'styled-reset';
+import theme from './theme';
 
 const GlobalStyle = createGlobalStyle`
   ${reset}
@@ -15,6 +16,11 @@ const GlobalStyle = createGlobalStyle`
   
   body {
     background-color: #fff;
+  }
+
+  ::selection {
+    background-color: ${theme.orange};
+    color: #fff;
   }
   
   a {
