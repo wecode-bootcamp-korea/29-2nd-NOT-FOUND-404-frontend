@@ -3,42 +3,35 @@ import styled from 'styled-components';
 import { CREATOR_CONTACT } from './detailCreatorData';
 import theme, { Heading, ScrollMarginTop } from '../../../../styles/theme';
 
-const DetailCreator = forwardRef((props, ref) => {
-  return (
-    <StyledDetailCreator ref={creatorRef => (ref.current[3] = creatorRef)}>
-      <CreatorProfileWrapper>
-        <CreatorHeading>
-          크리에이터
-          <br />
-          <span>무한리더</span>입니다.
-        </CreatorHeading>
-        <ProfileImg>
-          <img
-            alt="creator"
-            src="https://chungkyukim.github.io/page1.html/me1.jpg"
-          />
-        </ProfileImg>
-      </CreatorProfileWrapper>
-      <Contact>
-        {CREATOR_CONTACT.map(({ id, name, userName, link, image }) => (
-          <a key={id} href={link} target="_blank" rel="noreferrer">
-            <img alt={name} src={image} />
-            <span>{userName}</span>
-          </a>
-        ))}
-      </Contact>
-      <Introduction>
-        <p>
-          첫 조카가 태어나 이제 막 기어다니고 있어요. 조카 새별이가 걸음마를
-          시작할 때에, 저도 개발자로서 첫걸음을 디뎌보려 합니다. 그 전까지는
-          같이 기어 다닐거에요. 전 회사에서 개발자와 함께 일했을 때 항상
-          부정적이었던 그들.. 마냥 기다리기만 했던 짜증이, 어느새 개발자에 대한
-          동경으로 바뀌어 지금은 개발에 대한 꿈이 되었습니다.
-        </p>
-      </Introduction>
-    </StyledDetailCreator>
-  );
-});
+const DetailCreator = forwardRef(
+  ({ creator_name, creator_image, creator_description }, ref) => {
+    return (
+      <StyledDetailCreator ref={creatorRef => (ref.current[3] = creatorRef)}>
+        <CreatorProfileWrapper>
+          <CreatorHeading>
+            크리에이터
+            <br />
+            <span>{creator_name}</span>입니다.
+          </CreatorHeading>
+          <ProfileImg>
+            <img alt="creator" src={creator_image} />
+          </ProfileImg>
+        </CreatorProfileWrapper>
+        <Contact>
+          {CREATOR_CONTACT.map(({ id, name, userName, link, image }) => (
+            <a key={id} href={link} target="_blank" rel="noreferrer">
+              <img alt={name} src={image} />
+              <span>{userName}</span>
+            </a>
+          ))}
+        </Contact>
+        <Introduction>
+          <p>{creator_description}</p>
+        </Introduction>
+      </StyledDetailCreator>
+    );
+  }
+);
 
 const StyledDetailCreator = styled.section`
   ${ScrollMarginTop}

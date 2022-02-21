@@ -1,19 +1,24 @@
 import React from 'react';
 import styled from 'styled-components';
-import { DETAIL_INFO } from './detailInfoData';
 import theme from '../../../../styles/theme';
 
-const DetailInfo = () => {
+const DetailInfo = ({ duration, subtitle }) => {
   return (
     <StyledDetailInfo>
       <h2>클래스 정보</h2>
       <Info>
-        {DETAIL_INFO.map(({ id, name, content }) => (
-          <dl key={id}>
-            <dt>{name}</dt>
-            <dd>{content}</dd>
-          </dl>
-        ))}
+        <dl>
+          <dt>클래스 분량</dt>
+          <dd>{duration}시간</dd>
+        </dl>
+        <dl>
+          <dt>수강 가능일</dt>
+          <dd>바로 수강 가능</dd>
+        </dl>
+        <dl>
+          <dt>자막 포함 여부</dt>
+          <dd>{subtitle}</dd>
+        </dl>
       </Info>
     </StyledDetailInfo>
   );

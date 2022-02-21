@@ -6,12 +6,15 @@ const theme = {
   realblack: '#000',
   white: '#fff',
   lightgray: '#f8f8f8',
+  ghostgray: '#efefef',
   palegray: '#e5e5e5',
   softgray: '#d7d7d7',
   silvergray: '#cacaca',
   gray: '#a2a2a2',
   darkgray: '#666666',
   pinkred: '#f3213b',
+  red: '#fd3049',
+  darkorange: '#cc4500',
   yellow: '#ffb800',
   blue: '#004ec3',
 
@@ -48,6 +51,19 @@ export const NormalText = css`
 export const ScrollMarginTop = css`
   padding-top: 48px;
   scroll-margin-top: 48px;
+`;
+
+export const StyledButton = styled.button`
+  width: auto;
+  height: 40px;
+  padding: 0px 16px;
+  border-radius: 3px;
+  vertical-align: middle;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 40px;
+  letter-spacing: -0.2px;
+  transition: background-color 0.1s ease 0s;
 `;
 
 export const ShowMoreBtn = styled.button`

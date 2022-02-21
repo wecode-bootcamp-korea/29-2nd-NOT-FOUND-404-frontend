@@ -2,39 +2,31 @@ import React from 'react';
 import styled, { css } from 'styled-components';
 import theme from '../../../styles/theme';
 
-const ClassThumbnails = () => {
+const ClassThumbnails = ({ thumbnail, coverImg }) => {
   return (
     <StyledClassThumbnails>
       <Coupon>3만원 쿠폰</Coupon>
       <Container height="519px">
-        <Box width="58.8%">
-          <img
-            alt="thumbnail"
-            src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1169&q=80"
-          />
-        </Box>
-        <Container flexDirection="column" margin="0 0 0 6px">
-          <Box height="50%">
-            <img
-              alt="thumbnail"
-              src="https://images.unsplash.com/photo-1627399270231-7d36245355a9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80"
-            />
-          </Box>
-          <Container margin="6px 0 0 0">
-            <Box width="50%">
-              <img
-                alt="thumbnail"
-                src="https://images.unsplash.com/photo-1580927752452-89d86da3fa0a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
-              />
+        {coverImg && (
+          <>
+            <Box width="58.8%">
+              <img alt="thumbnail" src={thumbnail} />
             </Box>
-            <Box width="50%" margin="0 0 0 6px">
-              <img
-                alt="thumbnail"
-                src="https://images.unsplash.com/photo-1585229259898-f6caa3fdea13?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80"
-              />
-            </Box>
-          </Container>
-        </Container>
+            <Container flexDirection="column" margin="0 0 0 6px">
+              <Box height="50%">
+                <img alt="thumbnail" src={coverImg[0]} />
+              </Box>
+              <Container margin="6px 0 0 0">
+                <Box width="50%">
+                  <img alt="thumbnail" src={coverImg[1]} />
+                </Box>
+                <Box width="50%" margin="0 0 0 6px">
+                  <img alt="thumbnail" src={coverImg[2]} />
+                </Box>
+              </Container>
+            </Container>
+          </>
+        )}
       </Container>
     </StyledClassThumbnails>
   );

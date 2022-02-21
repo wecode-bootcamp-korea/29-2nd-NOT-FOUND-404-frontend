@@ -1,9 +1,8 @@
 import React, { forwardRef } from 'react';
 import styled from 'styled-components';
-import { DETAIL_CURRICULUM } from './detailCurriculumData';
 import theme, { Heading, ScrollMarginTop } from '../../../../styles/theme';
 
-const DetailCurriculum = forwardRef((props, ref) => {
+const DetailCurriculum = forwardRef(({ curriculum }, ref) => {
   return (
     <StyledDetailCurriculum
       ref={curriculumRef => (ref.current[2] = curriculumRef)}
@@ -16,7 +15,7 @@ const DetailCurriculum = forwardRef((props, ref) => {
         </p>
       </CurriculumIntro>
       <CurriculumList>
-        {DETAIL_CURRICULUM.map(({ id, curriculum }, index) => (
+        {curriculum?.map(({ id, curriculum }, index) => (
           <CurriculumItem key={id}>
             <span>{index + 1}</span>
             {curriculum}

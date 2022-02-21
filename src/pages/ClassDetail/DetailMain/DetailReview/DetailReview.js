@@ -1,6 +1,7 @@
-import React, { forwardRef } from 'react';
+import React, { forwardRef, useState } from 'react';
 import { Rating } from 'react-simple-star-rating';
 import styled, { css } from 'styled-components';
+import WriteReviewModal from './WriteReviewModal';
 import { REVIEW_IMG, REVIEW_DATA } from './detailReviewData';
 import theme, {
   ScrollMarginTop,
@@ -9,6 +10,8 @@ import theme, {
 } from '../../../../styles/theme';
 
 const DetailReview = forwardRef((props, ref) => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   return (
     <StyledDetailReview ref={reviewRef => (ref.current[0] = reviewRef)}>
       <ReviewImgSection>
@@ -25,7 +28,7 @@ const DetailReview = forwardRef((props, ref) => {
           <dl>
             <dt>수강생 만족도</dt>
             <dd>
-              99<span>%</span>
+              99<Percent>%</Percent>
             </dd>
           </dl>
         </Status>
@@ -40,8 +43,19 @@ const DetailReview = forwardRef((props, ref) => {
       <ReviewTextSection>
         <header>
           <h4>실제 수강생 후기</h4>
-          <button>후기 작성하기</button>
+          <WriteReviewBtn
+            type="button"
+            onClick={() => {
+              setIsModalOpen(true);
+            }}
+          >
+            후기 작성하기
+          </WriteReviewBtn>
         </header>
+        <WriteReviewModal
+          isModalOpen={isModalOpen}
+          setIsModalOpen={setIsModalOpen}
+        />
         <StarWrapper>
           <Rating ratingValue={4.6 * 20} readonly={true} />
           <Average>{4.6}</Average>
@@ -114,6 +128,13 @@ const Status = styled.div`
   }
 `;
 
+const Percent = styled.span`
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 24px;
+  letter-spacing: -0.45px;
+`;
+
 const ImgContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -155,18 +176,23 @@ const ReviewTextSection = styled.section`
       line-height: 26px;
       letter-spacing: -0.2px;
     }
+  }
+`;
 
-    button {
-      display: inline-flex;
-      place-content: center center;
-      height: 30px;
-      padding: 8px 12px;
-      border: 1px solid ${theme.softgray};
-      border-radius: 2px;
-      font-size: 12px;
-      font-weight: 700;
-      line-height: 1;
-    }
+const WriteReviewBtn = styled.button`
+  display: inline-flex;
+  place-content: center center;
+  height: 30px;
+  padding: 8px 12px;
+  border: 1px solid ${theme.softgray};
+  border-radius: 2px;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1;
+
+  &:hover {
+    border-color: ${theme.softgray};
+    background-color: #efefef;
   }
 `;
 

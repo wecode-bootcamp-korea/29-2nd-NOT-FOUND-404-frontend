@@ -19,7 +19,7 @@ const Router = () => {
       <Nav />
       <Routes>
         <Route path="/" element={<Main />} />
-        <Route path="/class" element={<ClassDetail />} />
+        <Route path="/class/:classId" element={<ClassDetail />} />
         <Route path="/creator" element={<Creator />} />
         <Route path="/search" element={<Search />} />
         <Route path="/login" element={<Login />} />
