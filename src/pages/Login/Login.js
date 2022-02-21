@@ -55,7 +55,6 @@ const ContentsSection = styled.section`
   flex: 0.88 1 0%;
   position: relative;
   background: ${theme.white};
-}
 `;
 
 const ImgSection = styled.section`
@@ -93,9 +92,8 @@ const LoginHeaderLangauge = styled.button`
   font-size: 14px;
   line-height: 20px;
   letter-spacing: -0.15px;
-  font-feature-settings: "case", "ss02";
+  font-feature-settings: 'case', 'ss02';
   cursor: pointer;
-}
 `;
 
 const ContentsWrap = styled.div`

@@ -155,10 +155,9 @@ const CustomerBtn = styled.button`
   transition: background-color 0.1s ease 0s;
   text-decoration-line: none;
 
-  &:hover{
+  &:hover {
     background-color: #ddd;
-    }
-}
+  }
 `;
 
 const CustomerText = styled.span`
@@ -169,7 +168,6 @@ const CustomerText = styled.span`
   line-height: 20px;
   letter-spacing: -0.15px;
   text-align: center;
-}
 `;
 
 const BottomContentsWrap = styled.div`

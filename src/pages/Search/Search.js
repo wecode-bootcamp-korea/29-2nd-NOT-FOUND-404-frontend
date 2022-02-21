@@ -147,7 +147,6 @@ const NoneSearchWrap = styled.div`
   width: 100%;
   height: 600px;
   -webkit-box-align: center;
-}
 `;
 
 const NoneSearchTitle = styled.h2`
@@ -173,13 +172,12 @@ const NoneSearchCheck = styled.span`
 `;
 
 const PagenationWrap = styled.div`
-${theme.flexCustom('center', 'center', 'row')};
+  ${theme.flexCustom('center', 'center', 'row')};
   width: 100%;
   margin-top: 32px;
   -webkit-box-pack: center;
   -webkit-box-align: center;
   display: none;
-}
 `;
 
 const PageButtonInactive = styled.button`
