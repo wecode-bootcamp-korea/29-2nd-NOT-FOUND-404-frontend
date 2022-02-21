@@ -117,6 +117,7 @@ const SliderString = styled.div`
     padding-right: 250px;
     font-size: 28px;
     font-weight: 700;
+    white-space: pre-line;
   }
 
   .subDesc {
