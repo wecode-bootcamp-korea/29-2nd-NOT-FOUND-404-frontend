@@ -14,6 +14,13 @@ const theme = {
   pinkred: '#f3213b',
   yellow: '#ffb800',
   blue: '#004ec3',
+
+  flexCustom: (alignItems, justifyContent, flexDirection) => `
+    display: flex;
+    flex-direction: ${flexDirection || 'initial'};
+    align-items: ${alignItems || 'center'};
+    justify-content: ${justifyContent || 'center'};
+  `,
 };
 
 export default theme;
