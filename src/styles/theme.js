@@ -12,8 +12,13 @@ const theme = {
   gray: '#a2a2a2',
   darkgray: '#666666',
   pinkred: '#f3213b',
-  yellow: '#ffb800',
-  blue: '#004ec3',
+
+  flexCenter: (direction = 'row', align = 'center', justify = 'center') => `
+  display:flex;
+  flex-direction:${direction};
+  align-items:${align};
+  justify-content:${justify}
+  `,
 };
 
 export default theme;
