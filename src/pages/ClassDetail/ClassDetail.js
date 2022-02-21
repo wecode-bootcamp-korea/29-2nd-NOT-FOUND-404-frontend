@@ -2,16 +2,22 @@ import React from 'react';
 import ClassThumbnails from './ClassThumbnails/ClassThumbnails';
 import DetailMain from './DetailMain/DetailMain';
 import DetailAside from './DetailAside/DetailAside';
+import useClassDetailData from './useClassDetailData';
 import styled from 'styled-components';
 import theme from '../../styles/theme';
 
 const ClassDetail = () => {
+  const { detailData, level } = useClassDetailData();
+
   return (
     <StyledClassDetail theme={theme}>
-      <ClassThumbnails />
+      <ClassThumbnails
+        thumbnail={detailData.thumbnail}
+        coverImg={detailData.cover_images}
+      />
       <DetailContainer>
-        <DetailMain />
-        <DetailAside />
+        <DetailMain detailData={detailData} level={level} />
+        <DetailAside detailData={detailData} level={level} />
       </DetailContainer>
     </StyledClassDetail>
   );

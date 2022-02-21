@@ -1,14 +1,13 @@
 import React from 'react';
 import Slider from 'react-slick';
 import styled, { css } from 'styled-components';
-import { PRODUCTS_OBJECTIVES } from '../classDescriptionData';
 import theme, { NormalText } from '../../../../../styles/theme';
 
-const DetailClassObjectives = () => {
+const DetailClassObjectives = ({ objects }) => {
   return (
     <StyledDetailClassObjectives>
       <StyledSlider {...sliderSettings}>
-        {PRODUCTS_OBJECTIVES.map(({ id, title, content, image }) => (
+        {objects?.map(({ id, title, content, image }) => (
           <StyledSlide key={id}>
             <h5>{title}</h5>
             <p>{content}</p>

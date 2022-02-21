@@ -9,17 +9,41 @@ import DetailCreator from './DetailCreator/DetailCreator';
 import DetailCommunity from './DetailCommunity/DetailCommunity';
 import DetailRefundPolicy from './DetailRefundPolicy/DetailRefundPolicy';
 
-const DetailMain = () => {
+const DetailMain = ({ detailData, level }) => {
   const scrollRef = useRef([]);
+
+  const {
+    creator_description,
+    creator_image,
+    creator_name,
+    curriculum,
+    description,
+    duration,
+    objects,
+    subcategory,
+    subtitle,
+  } = detailData;
 
   return (
     <StyledDetailMain>
       <DetailNav scrollRef={scrollRef} />
-      <DetailInfo />
+      <DetailInfo duration={duration} subtitle={subtitle} />
       <DetailReview ref={scrollRef} />
-      <DetailClassDescription ref={scrollRef} />
-      <DetailCurriculum ref={scrollRef} />
-      <DetailCreator ref={scrollRef} />
+      <DetailClassDescription
+        ref={scrollRef}
+        objects={objects}
+        description={description}
+        level={level}
+        subcategory={subcategory}
+        duration={duration}
+      />
+      <DetailCurriculum ref={scrollRef} curriculum={curriculum} />
+      <DetailCreator
+        ref={scrollRef}
+        creator_name={creator_name}
+        creator_image={creator_image}
+        creator_description={creator_description}
+      />
       <DetailCommunity ref={scrollRef} />
       <DetailRefundPolicy ref={scrollRef} />
     </StyledDetailMain>

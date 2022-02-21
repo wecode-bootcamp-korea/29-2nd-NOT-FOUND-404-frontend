@@ -1,20 +1,61 @@
-import React, { forwardRef } from 'react';
+import React, { forwardRef, useState, useEffect } from 'react';
 import styled, { css } from 'styled-components';
+import PostModal from './PostModal';
 import { POSTINGS, COMMENTS } from './communityData';
 import theme, {
   Heading,
   ScrollMarginTop,
+  StyledButton,
   ShowMoreBtn,
 } from '../../../../styles/theme';
 
 const DetailCommunity = forwardRef((props, ref) => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [postings, setPostings] = useState({});
+  const [commentInput, setCommentInput] = useState('');
+
+  useEffect(() => {
+    const getPostingsData = async () => {
+      const json = await (
+        await fetch('/data/detailData/communityPostingsData.json')
+      ).json();
+      setPostings(json);
+    };
+    getPostingsData();
+  }, []);
+
+  const handleCommentInput = event => {
+    const id = event.target.dataset.postId;
+    const value = event.target.value;
+    setCommentInput(curr => ({ ...curr, [id]: value }));
+  };
+
+  const submitComment = event => {
+    event.preventDefault();
+    const id = event.target.dataset.postId;
+    // TODO: 서버와 통신 예정
+    // console.log(id, commentInput[id]);
+    setCommentInput(curr => ({ ...curr, [id]: '' }));
+  };
+
   return (
     <StyledDetailCommunity
       ref={communityRef => (ref.current[4] = communityRef)}
     >
-      <StyledHeading>
-        커뮤니티<small>{`${282}개의 글`}</small>
-      </StyledHeading>
+      <Header>
+        <Heading>
+          커뮤니티<PostsAmount>{`${282}개의 글`}</PostsAmount>
+        </Heading>
+        <WritePostBtn
+          type="button"
+          onClick={() => {
+            setIsModalOpen(true);
+          }}
+        >
+          글 작성하기
+        </WritePostBtn>
+      </Header>
+      <PostModal isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} />
       <Announcement>
         <Creator>
           <CreatorProfileImg>
@@ -33,48 +74,52 @@ const DetailCommunity = forwardRef((props, ref) => {
         </p>
       </Announcement>
       <PostsWrapper>
-        {POSTINGS.map(({ id, name, content }) => (
-          <Post key={id}>
-            <UserName>
-              <UserIcon className="fa-solid fa-circle-user" />
-              {name}
-            </UserName>
-            <PostContent>{content}</PostContent>
+        {postings &&
+          POSTINGS.map(({ id, name, content }) => (
+            <Post key={id}>
+              <UserName>
+                <UserIcon className="fa-solid fa-circle-user" />
+                {name}
+              </UserName>
+              <PostContent>{content}</PostContent>
 
-            {COMMENTS.filter(ele => ele.post_id === id).map(
-              ({ id, name, content }) => (
-                <UploadedComment key={id}>
-                  <UserName fontSize="12px">
-                    <UserIcon
-                      fontSize="14px"
-                      className="fa-solid fa-circle-user"
-                    />
-                    {name}
-                  </UserName>
-                  <CommentContent>{content}</CommentContent>
-                </UploadedComment>
-              )
-            )}
+              {COMMENTS.filter(ele => ele.post_id === id).map(
+                ({ id, name, content }) => (
+                  <UploadedComment key={id}>
+                    <UserName fontSize="12px">
+                      <UserIcon
+                        fontSize="14px"
+                        className="fa-solid fa-circle-user"
+                      />
+                      {name}
+                    </UserName>
+                    <CommentContent>{content}</CommentContent>
+                  </UploadedComment>
+                )
+              )}
 
-            <CommentForm>
-              <FileLabel>
-                <img
-                  alt="파일 첨부"
-                  src="/images/icons/ic-new-file-input-button.png"
+              <CommentForm data-post-id={id} onSubmit={submitComment}>
+                <FileLabel>
+                  <img
+                    alt="파일 첨부"
+                    src="/images/icons/ic-new-file-input-button.png"
+                  />
+                  <input name="file" type="file" accept="image/*" />
+                </FileLabel>
+                <CommentTextarea
+                  name="content"
+                  placeholder="댓글을 입력해주세요."
+                  rows="1"
+                  data-post-id={id}
+                  value={commentInput[id]}
+                  onInput={handleCommentInput}
                 />
-                <input name="file" type="file" accept="image/*" />
-              </FileLabel>
-              <CommentTextarea
-                name="content"
-                placeholder="댓글을 입력해주세요."
-                rows="1"
-              />
-              <CommentSubmitBtn type="submit">
-                <i className="fa-regular fa-circle-right" />
-              </CommentSubmitBtn>
-            </CommentForm>
-          </Post>
-        ))}
+                <CommentSubmitBtn type="submit">
+                  <i className="fa-regular fa-circle-right" />
+                </CommentSubmitBtn>
+              </CommentForm>
+            </Post>
+          ))}
         <ShowMoreBtn>더 보기</ShowMoreBtn>
       </PostsWrapper>
     </StyledDetailCommunity>
@@ -86,15 +131,26 @@ const StyledDetailCommunity = styled.section`
   margin-bottom: 48px;
 `;
 
-const StyledHeading = styled(Heading)`
+const Header = styled.header`
+  ${theme.flexCustom('center', 'space-between')}
   margin-bottom: 24px;
+`;
 
-  small {
-    margin-left: 8px;
-    color: ${theme.silvergray};
-    font-size: 14px;
-    font-weight: normal;
-    line-height: 24px;
+const PostsAmount = styled.small`
+  margin-left: 8px;
+  color: ${theme.silvergray};
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 24px;
+`;
+
+const WritePostBtn = styled(StyledButton)`
+  display: inline-flex;
+  background-color: #3a3a3a;
+  color: ${theme.lightgray};
+
+  &:hover {
+    background-color: #212121;
   }
 `;
 
@@ -176,9 +232,7 @@ const CommentContent = styled.div`
 `;
 
 const CommentForm = styled.form`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  ${theme.flexCustom('center', 'space-between')}
   min-height: 48px;
   padding: 0px 10px;
   border: 1px solid ${theme.palegray};

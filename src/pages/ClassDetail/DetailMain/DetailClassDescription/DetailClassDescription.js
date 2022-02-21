@@ -3,7 +3,6 @@ import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import styled from 'styled-components';
 import DetailClassObjectives from './DetailClassObjectives/DetailClassObjectives';
-import { CLASS_DESCRIPTION_MD } from './classDescriptionData';
 import theme, {
   ScrollMarginTop,
   Heading,
@@ -11,45 +10,47 @@ import theme, {
   NormalText,
 } from '../../../../styles/theme';
 
-const DetailClassDescription = forwardRef((props, ref) => {
-  return (
-    <StyledDetailClassDescription
-      ref={descriptionRef => (ref.current[1] = descriptionRef)}
-    >
-      <Heading>이런 걸 배울 거예요</Heading>
-      <DetailClassObjectives />
-      <header>
-        <Heading>
-          <Target>초급자</Target>분들을 위한
-          <br />
-          <Target>코딩독학</Target>
-          <br />
-          클래스입니다.
-        </Heading>
-      </header>
-      <ClassInfoWrapper>
-        <Period>
-          <div>
-            <i className="fa-solid fa-calendar-days" />
-          </div>
-          <h6>1년 수강 가능</h6>
-          <Text>수강 기간 내 무제한 수강 가능합니다.</Text>
-        </Period>
-        <Hours>
-          <div>
-            <i className="fa-solid fa-file-invoice" />
-          </div>
-          <h6>{`${56}시간 콘텐츠`}</h6>
-          <Text>{`총 ${56}시간의 강의를 수강하실 수 있습니다.`}</Text>
-        </Hours>
-      </ClassInfoWrapper>
-      <StyledReactMarkdown
-        children={CLASS_DESCRIPTION_MD}
-        remarkPlugins={[remarkGfm]}
-      />
-    </StyledDetailClassDescription>
-  );
-});
+const DetailClassDescription = forwardRef(
+  ({ objects, description, level, subcategory, duration }, ref) => {
+    return (
+      <StyledDetailClassDescription
+        ref={descriptionRef => (ref.current[1] = descriptionRef)}
+      >
+        <Heading>이런 걸 배울 거예요</Heading>
+        <DetailClassObjectives objects={objects} />
+        <header>
+          <Heading>
+            <Target>{level}</Target>분들을 위한
+            <br />
+            <Target>{subcategory}</Target>
+            <br />
+            클래스입니다.
+          </Heading>
+        </header>
+        <ClassInfoWrapper>
+          <Period>
+            <div>
+              <i className="fa-solid fa-calendar-days" />
+            </div>
+            <h6>1년 수강 가능</h6>
+            <Text>수강 기간 내 무제한 수강 가능합니다.</Text>
+          </Period>
+          <Hours>
+            <div>
+              <i className="fa-solid fa-file-invoice" />
+            </div>
+            <h6>{`${duration}시간 콘텐츠`}</h6>
+            <Text>{`총 ${duration}시간의 강의를 수강하실 수 있습니다.`}</Text>
+          </Hours>
+        </ClassInfoWrapper>
+        <StyledReactMarkdown
+          children={description}
+          remarkPlugins={[remarkGfm]}
+        />
+      </StyledDetailClassDescription>
+    );
+  }
+);
 
 const StyledDetailClassDescription = styled.section`
   ${ScrollMarginTop}
