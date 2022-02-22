@@ -6,6 +6,8 @@ import Creator from './pages/Creator/Creator';
 import Nav from './components/Nav/Nav';
 import Search from './pages/Search/Search';
 import Login from './pages/Login/Login';
+import Auth from './pages/Login/Auth';
+import Footer from './components/Footer/Footer';
 
 const Router = () => {
   return (
@@ -17,7 +19,9 @@ const Router = () => {
         <Route path="/creator" element={<Creator />} />
         <Route path="/search" element={<Search />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/oauth/callback/kakao" element={<Auth />} />
       </Routes>
+      <Footer />
     </BrowserRouter>
   );
 };
