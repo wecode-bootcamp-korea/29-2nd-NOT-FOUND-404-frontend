@@ -8,7 +8,7 @@ import EditSideBar from './EditSideBar/EditSideBar';
 import Information from './Information';
 import Learn from './Learn/Learn';
 import TitleCover from './TitleCover/TitleCover';
-import Class from './Class';
+import Class from './Class/Class';
 import theme from '../../../../../styles/theme';
 
 function Edit() {

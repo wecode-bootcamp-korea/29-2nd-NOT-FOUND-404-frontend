@@ -1,29 +1,35 @@
 import React from 'react';
-import { Route, Routes } from 'react-router-dom';
 import styled from 'styled-components';
-import CreatorSideBar from './CreatorSideBar';
+import CreatorSideBar from './CreatorSideBar/CreatorSideBar';
+import Notice from './Notice/Notice';
 import Product from './Product/Product';
 
 function CreatorMypage() {
   return (
-    <MyPageWrap>
+    <div>
       <CreatorSideBar />
-      <Wrapper>
-        <Routes>
-          <Route path="/" element={<Product />} />
-        </Routes>
-      </Wrapper>
-    </MyPageWrap>
+      <MyPageWrap>
+        <SideBarBox />
+        <Wrapper>
+          <Product />
+          {/* <Notice /> */}
+        </Wrapper>
+      </MyPageWrap>
+    </div>
   );
 }
 
 export default CreatorMypage;
 
+const SideBarBox = styled.div`
+  width: 239px;
+`;
+
 const MyPageWrap = styled.section`
-  display: grid;
-  grid-template-columns: 1fr 9fr;
+  display: flex;
+  justify-content: center;
 `;
 
 const Wrapper = styled.section`
-  margin: 30px 0px 32px 0px;
+  padding: 30px 0px 32px 0px;
 `;

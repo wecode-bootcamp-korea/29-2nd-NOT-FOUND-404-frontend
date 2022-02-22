@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import Delete from '../../img/delete-1.svg';
+import Preview from '../../img/preview.jpg';
 
 function ProductLists() {
   return (
@@ -11,7 +12,7 @@ function ProductLists() {
           <Check type="checkbox" />
         </Row1Wrapper>
         <Row2Wrapper>
-          <Thumbnail src="https://cdn.class101.net/images/c45a317b-f30d-41be-9f17-2950fa2b821e/640xauto" />
+          <Thumbnail src={Preview} />
         </Row2Wrapper>
         <Row3Wrapper>
           <Text bold>상품명을 입력해주세요.</Text>

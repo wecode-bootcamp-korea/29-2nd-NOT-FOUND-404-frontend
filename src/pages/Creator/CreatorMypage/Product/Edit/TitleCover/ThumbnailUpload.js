@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import addImg from '../../../../img/add-photo-portrait.png';
 import Delete from '../../../../img/delete-2.svg';
+import axios from 'axios';
 
 function ThumbnailUpload() {
   const [fileImage, setFileImage] = useState('');
@@ -13,6 +14,21 @@ function ThumbnailUpload() {
   const deleteFileImage = () => {
     URL.revokeObjectURL(fileImage);
     setFileImage('');
+  };
+
+  const uploadImg = e => {
+    if (e.target.files[0]) {
+      const img = new FormData();
+      img.append('file', e.target.files[0]);
+      axios
+        .post('http://localhost:8080/upload', img)
+        .then(res => {
+          setFileImage(res.data);
+        })
+        .catch(err => {
+          console.error(err);
+        });
+    }
   };
 
   return (

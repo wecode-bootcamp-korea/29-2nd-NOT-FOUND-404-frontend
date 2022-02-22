@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import MarkDown from './MarkDown';
 
 function Class() {
   return (
@@ -9,6 +10,7 @@ function Class() {
         내 클래스를 표현한다면 어떤 단어가 좋을까요? 간단하지만 효과적으로
         클래스를 어필해보세요.
       </Account>
+      <MarkDown />
     </div>
   );
 }
