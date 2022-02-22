@@ -9,7 +9,8 @@
     "class_like": "99%",
     "sale": "33%",
     "price": "49,900",
-    "term": "5"
+    "term": "5",
+    "wishlist": []
   },
   {
     "id": 2,
@@ -22,7 +23,8 @@
     "class_like": "99%",
     "sale": "33%",
     "price": "49,900",
-    "term": "5"
+    "term": "5",
+    "wishlist": ["1", "2"]
   },
   {
     "id": 3,
@@ -35,7 +37,8 @@
     "class_like": "99%",
     "sale": "33%",
     "price": "49,900",
-    "term": "5"
+    "term": "5",
+    "wishlist": ["1", "2"]
   },
   {
     "id": 4,
@@ -48,6 +51,21 @@
     "class_like": "99%",
     "sale": "33%",
     "price": "49,900",
-    "term": "5"
+    "term": "5",
+    "wishlist": ["1", "2"]
+  },
+  {
+    "id": 5,
+    "route_url": "/main",
+    "img_url": "/images/Search/tum.jpeg",
+    "coupon": "3만원 쿠폰",
+    "user_id": "안녕늘봄씨",
+    "class_title": "[🎁2월특가] 취향을 담아 만드는 19권의 수제 노트, 안녕늘보씨의 북바인딩",
+    "class_heart": "5145",
+    "class_like": "99%",
+    "sale": "33%",
+    "price": "49,900",
+    "term": "5",
+    "wishlist": ["1", "2"]
   }
 ]

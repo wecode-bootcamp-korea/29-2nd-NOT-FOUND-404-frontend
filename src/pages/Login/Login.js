@@ -6,7 +6,7 @@ import { api } from '../../config';
 
 const Login = () => {
   const client_id = process.env.REACT_APP_KAKAO_API;
-  const redirect_uri = api.redirect_ur;
+  const redirect_uri = api.redirect_uri;
   const kakao_auth_url = `https://kauth.kakao.com/oauth/authorize?client_id=${client_id}&redirect_uri=${redirect_uri}&response_type=code`;
 
   const loginPageMoveHandler = () => {
