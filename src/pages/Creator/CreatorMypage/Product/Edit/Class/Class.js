@@ -1,8 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import MarkDown from './MarkDown';
+<<<<<<< HEAD:src/pages/Creator/CreatorMypage/Product/Edit/Class/Class.js
+import Bottom from '../Bottom';
+=======
+>>>>>>> 2a245c0 (기능 수정):src/pages/Creator/CreatorMypage/Product/Edit/Class.js
 
 function Class() {
+  const [data, setData] = useState();
+
   return (
     <div>
       <Title>클래스를 소개해주세요</Title>
@@ -10,7 +16,12 @@ function Class() {
         내 클래스를 표현한다면 어떤 단어가 좋을까요? 간단하지만 효과적으로
         클래스를 어필해보세요.
       </Account>
+<<<<<<< HEAD:src/pages/Creator/CreatorMypage/Product/Edit/Class/Class.js
+      <MarkDown data={data} setData={setData} />
+      <Bottom />
+=======
       <MarkDown />
+>>>>>>> 2a245c0 (기능 수정):src/pages/Creator/CreatorMypage/Product/Edit/Class.js
     </div>
   );
 }

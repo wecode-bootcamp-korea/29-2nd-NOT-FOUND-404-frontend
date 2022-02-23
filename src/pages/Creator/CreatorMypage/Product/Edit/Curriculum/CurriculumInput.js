@@ -1,43 +1,31 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import errormsg from '../errormsg';
+import theme from '../../../../../../styles/theme';
+import useError from '../useError';
 
 function CurriculumInput({ com }) {
   const [values, setValues] = useState({
-    necessary: '',
+    curriculum: '',
   });
-  const [errors, setErrors] = useState({});
-  const [mouseOut, setMouseOut] = useState(false);
 
-  const handleChange = e => {
-    setValues({
-      ...values,
-      [e.target.name]: e.target.value,
-    });
-  };
-
-  const handleFormNext = e => {
-    e.preventDefault();
-    if (values.necessary === '') {
-      setMouseOut(true);
-      setErrors(errormsg(values));
-    } else {
-      setMouseOut(false);
-    }
-  };
+  const { errors, mouseOut, handleChange, handleFormNext, color } = useError(
+    values,
+    setValues
+  );
 
   return (
     <CurriculumWrap>
       <Text>커리큘럼{com}</Text>
       <form>
         <Input
-          error={mouseOut}
           placeholder="작성해주세요."
           type="text"
-          name="necessary"
-          value={values.necessary}
+          name="curriculum"
+          error={mouseOut}
+          value={values.nickname}
           onBlur={handleFormNext}
           onChange={handleChange}
+          color={color}
         />
         {mouseOut ? (
           <ErrorMsg>
@@ -82,7 +70,7 @@ const Input = styled.input`
   }
 
   &::placeholder {
-    color: #cacaca;
+    color: ${theme.silvergray};
   }
 `;
 

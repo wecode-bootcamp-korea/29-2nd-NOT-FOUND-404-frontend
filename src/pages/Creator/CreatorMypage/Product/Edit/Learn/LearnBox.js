@@ -2,9 +2,20 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import addImg from '../../../../img/add-photo-portrait.png';
 import Delete from '../../../../img/delete-2.svg';
+import useError from '../useError';
 
 function LearnBox() {
   const [fileImage, setFileImage] = useState('');
+  const [values, setValues] = useState({
+    img: '',
+    title: '',
+    content: '',
+  });
+
+  const { errors, mouseOut, handleChange, handleFormNext, color } = useError(
+    values,
+    setValues
+  );
 
   const saveFileImage = e => {
     setFileImage(URL.createObjectURL(e.target.files[0]));
@@ -14,11 +25,6 @@ function LearnBox() {
     URL.revokeObjectURL(fileImage);
     setFileImage('');
   };
-
-  // const handleClick = e => {
-  //   const formdata = new FormData();
-  //   formdata.append('uploadImage', file);
-  // };
 
   return (
     <BoxWarp>
@@ -33,7 +39,13 @@ function LearnBox() {
           </>
         ) : (
           <div>
-            <Label>
+            <Label
+              error={mouseOut}
+              value={values.nickname}
+              onBlur={handleFormNext}
+              onChange={handleChange}
+              color={color}
+            >
               <AddImg src={addImg} />
               이미지를 첨부해주세요
               <input
@@ -52,6 +64,12 @@ function LearnBox() {
         type="text"
         placeholder="사진,영상에 대한 설명을 적어주세요."
       />
+      {mouseOut ? (
+        <ErrorMsg>
+          <ErrorIcon className="fa-solid fa-triangle-exclamation" />
+          {errors.necessary}
+        </ErrorMsg>
+      ) : null}
     </BoxWarp>
   );
 }
@@ -170,4 +188,15 @@ const FileImg = styled.img`
   border: 1px solid #e5e5e5;
   border-radius: 3px;
   object-fit: cover;
+`;
+
+const ErrorMsg = styled.p`
+  margin-top: 10px;
+  color: #ff5252;
+  font-size: 11px;
+  letter-spacing: -0.5px;
+`;
+
+const ErrorIcon = styled.i`
+  margin-right: 4px;
 `;

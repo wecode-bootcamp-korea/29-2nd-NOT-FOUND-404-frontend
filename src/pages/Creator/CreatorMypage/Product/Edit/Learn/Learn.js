@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import LearnBox from './LearnBox';
+import Bottom from '../Bottom';
 
 function Learn() {
   const Box = [1, 2, 3, 4, 5, 6];
@@ -16,6 +17,7 @@ function Learn() {
           return <LearnBox key={idx} />;
         })}
       </Warp>
+      <Bottom />
     </div>
   );
 }

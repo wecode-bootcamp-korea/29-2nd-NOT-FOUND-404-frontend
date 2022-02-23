@@ -2,14 +2,10 @@ import React from 'react';
 import styled from 'styled-components';
 import ImgUploadBox from './ImgUploadBox';
 import ThumbnailUpload from './ThumbnailUpload';
+import Bottom from '../Bottom';
 
 function TitleCover() {
   const imgArry = [1, 2, 3, 4];
-
-  // const handleClick = e => {
-  //   const formdata = new FormData();
-  //   formdata.append('uploadImage', file);
-  // };
 
   return (
     <>
@@ -23,15 +19,12 @@ function TitleCover() {
           <ThumbnailUpload />
         </Left>
         <div>
-          <Text>클래스 제목</Text>
-          <Input type="text" />
           <Tip>
-            <Text bold>어떤 사진과 제목이 좋을지 고민이신가요?</Text>
+            <Text bold>어떤 사진이 좋을지 고민이신가요?</Text>
             <Text>
-              제목은 감성적이면서도 직관적인 제목이 좋습니다. 이미지는 세로형이
-              아닌
-              <br />
-              가로형 이미지에 최적화돼있습니다. 클래스의 장점이 돋보일 수 있도록
+              이미지는 세로형이 아닌 가로형을 권장합니다. 클래스 커버는
+              수강생분들에게 <br />
+              제일 먼저 노출되는 이미지입니다. 클래스의 장점이 돋보일 수 있도록
               선정해주세요!
             </Text>
           </Tip>
@@ -45,6 +38,7 @@ function TitleCover() {
           })}
         </ImgBoxWrap>
       </SectionB>
+      <Bottom />
     </>
   );
 }
@@ -83,33 +77,8 @@ const SectionA = styled.section`
   display: flex;
 `;
 
-const Input = styled.input`
-  margin-bottom: 32px;
-  padding: 0px 48px 0px 16px;
-  width: 600px;
-  height: 48px;
-  border: 1px solid #efefef;
-  border-radius: 3px;
-
-  &::-webkit-outer-spin-button,
-  ::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-  }
-
-  &:hover {
-    border: 1px solid #d7d7d7;
-  }
-
-  &:focus {
-    border: 1px solid black;
-  }
-
-  &::placeholder {
-    color: #cacaca;
-  }
-`;
-
 const Tip = styled.div`
+  margin-top: 24px;
   background-color: #f8f8f8;
   width: 600px;
   height: 114px;

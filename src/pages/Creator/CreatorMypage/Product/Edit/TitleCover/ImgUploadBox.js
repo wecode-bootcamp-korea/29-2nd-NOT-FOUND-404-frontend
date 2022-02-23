@@ -16,7 +16,7 @@ function ImgUploadBox() {
   };
 
   return (
-    <ImgBox>
+    <ImgBox error>
       {fileImage ? (
         <>
           <Img src={fileImage} />

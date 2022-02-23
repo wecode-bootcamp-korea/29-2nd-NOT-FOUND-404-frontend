@@ -3,6 +3,10 @@ import styled from 'styled-components';
 import addImg from '../../../../img/add-photo-portrait.png';
 import Delete from '../../../../img/delete-2.svg';
 import axios from 'axios';
+<<<<<<< HEAD
+import { safePreventDefault } from 'react-slick/lib/utils/innerSliderUtils';
+=======
+>>>>>>> 2a245c0 (기능 수정)
 
 function ThumbnailUpload() {
   const [fileImage, setFileImage] = useState('');
@@ -16,6 +20,26 @@ function ThumbnailUpload() {
     setFileImage('');
   };
 
+<<<<<<< HEAD
+  // const uploadImg = e => {
+  //   if (e.target.files[0]) {
+  //     const img = new FormData();
+  //     img.append('file', e.target.files[0]);
+  //     axios
+  //       .post('http://localhost:8080/upload', img)
+  //       .then(res => {
+  //         setFileImage(res.data);
+  //       })
+  //       .catch(err => {
+  //         console.error(err);
+  //       });
+  //   }
+  // };
+
+  const handleSubmit = e => {
+    e.PreventDefault();
+    let formData = new FormData();
+=======
   const uploadImg = e => {
     if (e.target.files[0]) {
       const img = new FormData();
@@ -29,6 +53,7 @@ function ThumbnailUpload() {
           console.error(err);
         });
     }
+>>>>>>> 2a245c0 (기능 수정)
   };
 
   return (

@@ -23,6 +23,7 @@
     "react-scripts": "5.0.0",
     "react-simple-star-rating": "^4.0.5",
     "react-slick": "^0.28.1",
+    "recoil": "^0.6.1",
     "remark-gfm": "^3.0.1",
     "styled-components": "^5.3.3",
     "styled-reset": "^4.3.4",

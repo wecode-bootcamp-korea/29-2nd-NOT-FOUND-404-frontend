@@ -23,6 +23,10 @@ const Nav = styled.nav`
   flex-direction: column;
   width: 239px;
   height: 100vmin;
+<<<<<<< HEAD
+  background-color: #fff;
+=======
+>>>>>>> 2a245c0 (기능 수정)
   border-right: 1px solid #e5e5e5;
 `;
 

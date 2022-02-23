@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import CurriculumInput from './CurriculumInput';
+import Bottom from '../Bottom';
 
 function Curriculum() {
   const curriculum = ['1', '2', '3', '4'];
@@ -15,6 +16,7 @@ function Curriculum() {
       {curriculum.map((com, idx) => {
         return <CurriculumInput key={idx} com={com} />;
       })}
+      <Bottom />
     </section>
   );
 }

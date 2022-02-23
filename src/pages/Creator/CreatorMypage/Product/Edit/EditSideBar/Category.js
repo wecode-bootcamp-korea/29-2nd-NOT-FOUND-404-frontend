@@ -3,6 +3,12 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 function Category({ cate }) {
+  // const navigate = useNavigate;
+
+  // const goToDetail = () => {
+  //   navigate(`/creator/mypage/edit/${cate.id}`);
+  // };
+
   return (
     <div>
       <Link to={cate.link}>

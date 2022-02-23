@@ -1,30 +1,26 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import Camera from '../../../../img/camera.svg';
 
-function ProfileUploadBox() {
-  const [fileImage, setFileImage] = useState('');
-
+function ProfileUploadBox({ files, setFiles }) {
   const saveFileImage = e => {
-    setFileImage(URL.createObjectURL(e.target.files[0]));
+    setFiles(URL.createObjectURL(e.target.files[0]));
   };
 
   return (
-    <form encType="multipart/form-data">
-      <ImgBox for="file">
-        {fileImage && <FileImg src={fileImage} />}
-        <AddBtn for="file">
-          <Icon src={Camera} />
-        </AddBtn>
-        <input
-          type="file"
-          accept="image/*"
-          id="file"
-          onChange={saveFileImage}
-          style={{ display: 'none' }}
-        />
-      </ImgBox>
-    </form>
+    <ImgBox for="file">
+      {files && <FileImg src={files} />}
+      <AddBtn for="file">
+        <Icon src={Camera} />
+      </AddBtn>
+      <input
+        type="file"
+        accept="image/*"
+        id="file"
+        onChange={saveFileImage}
+        style={{ display: 'none' }}
+      />
+    </ImgBox>
   );
 }
 

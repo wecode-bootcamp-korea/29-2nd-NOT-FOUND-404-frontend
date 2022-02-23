@@ -8,8 +8,6 @@ import CreatorMainQnA from './CreatorMainQnA';
 import CREATOR_MAIN_DATA from './creatorMainData';
 import theme from '../../../styles/theme';
 
-console.log(CREATOR_MAIN_DATA[0].mainImg);
-
 function CreatorMain() {
   return (
     <>
