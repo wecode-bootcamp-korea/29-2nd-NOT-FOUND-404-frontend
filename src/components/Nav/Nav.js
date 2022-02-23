@@ -437,6 +437,7 @@ const NavMenuWrap = styled.div`
   background-color: ${theme.white};
   border: 1px solid #efefef;
   border-top: none;
+  z-index: 9999;
 `;
 
 const NavMenu = styled(Link)`
