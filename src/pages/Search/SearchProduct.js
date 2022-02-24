@@ -6,7 +6,7 @@ import styled from 'styled-components';
 import theme from '../../styles/theme';
 
 const SearchProduct = ({ props }) => {
-  const { id, title, creator, price, discount_rate } = props;
+  const { id, title, creator, price, discount_rate, image_url } = props;
 
   const [isOnWishlist, setIsOnWishlist] = useState(false);
 
@@ -19,7 +19,7 @@ const SearchProduct = ({ props }) => {
     <Product>
       <ProductLinkWrap to={`/products/${id}`}>
         <ProductTumWrap>
-          <ProductTum />
+          <ProductTum src={image_url} />
           <CouponWrap>
             <CouponTxt>3만원 쿠폰</CouponTxt>
           </CouponWrap>

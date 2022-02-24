@@ -12,8 +12,10 @@ const Search = () => {
       method: 'GET',
     })
       .then(res => res.json())
-      .then(data => setSearchData(data.results));
+      .then(data => setSearchData(data.random_products));
   }, []);
+
+  const result = searchData.filter(word => word.title.includes('자바'));
 
   return (
     <Wrap>
@@ -35,11 +37,11 @@ const Search = () => {
           ))}
         </FillterWrap>
         <ProductListWrap>
-          {searchData[0]?.length === 0 ? (
+          {result?.length === 0 ? (
             <NoneSearchWrap>
               <NoneSearchTitle>
-                <NoneSearchValue>검색어 value가 들어갈 자리</NoneSearchValue>에
-                대한 검색 결과가 없습니다.
+                <NoneSearchValue>검색어</NoneSearchValue>에 대한 검색 결과가
+                없습니다.
               </NoneSearchTitle>
               <NoneSearchCheck>
                 찾고자 하는 검색어를 확인하시고
@@ -49,12 +51,12 @@ const Search = () => {
             </NoneSearchWrap>
           ) : (
             <ProductWrap>
-              {searchData[0]?.map(props => (
+              {result?.map(props => (
                 <SearchProduct key={props.id} props={props} />
               ))}
             </ProductWrap>
           )}
-          {searchData[0]?.length > 0 && (
+          {result?.length > 0 && (
             <PagenationWrap>
               <PageButtonInactive>
                 <span>&#60;</span>
