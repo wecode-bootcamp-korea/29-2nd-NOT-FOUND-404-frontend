@@ -123,7 +123,7 @@ const Nav = () => {
         <MainHeaderWrap>
           <HeaderContainer>
             <HeaderLeftContentWrap>
-              <Link to="/main">
+              <Link to="/">
                 <Logo src="/images/Nav/header_logo.png" />
               </Link>
               <HeaderMenuWrap>

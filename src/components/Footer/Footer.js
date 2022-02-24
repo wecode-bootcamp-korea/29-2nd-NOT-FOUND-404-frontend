@@ -17,13 +17,13 @@ const Footer = () => {
           <LogoWrap>
             <FooterTitle src="/images/Footer/header_logo.png" />
             <FooterSubTxt>
-              클래스101은 모든 사람이 사랑하는 일을 하며
+              NOTFOUND404는 모든 사람이 사랑하는 일을 하며
               <br /> 살 수 있도록 세상을 바꾸고자 합니다.
             </FooterSubTxt>
             <CurrentLanguage>🇰🇷 한국어/ 한국 스토어</CurrentLanguage>
           </LogoWrap>
           <ContentWrap>
-            <ContentTitle>클래스101</ContentTitle>
+            <ContentTitle>NOTFOUND404</ContentTitle>
             {FOOTER_NAV_LIST_CLASS.map(({ id, name }) => (
               <ContentTitleList key={id}>{name}</ContentTitleList>
             ))}
