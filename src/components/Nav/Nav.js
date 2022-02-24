@@ -25,9 +25,9 @@ const Nav = () => {
   };
 
   const searchPageMoveHandler = () => {
-    navigate('/search', {
+    navigate('/Search', {
       state: {
-        inputValue,
+        inputValue: inputValue,
       },
     });
 

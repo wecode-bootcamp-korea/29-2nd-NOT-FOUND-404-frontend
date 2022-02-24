@@ -1,4 +1,4 @@
-export const BASE_URL = 'http://10.58.5.57:3000';
+export const BASE_URL = 'http://10.58.7.192:3000';
 
 export const api = {
   login: BASE_URL + '/users/callback',
