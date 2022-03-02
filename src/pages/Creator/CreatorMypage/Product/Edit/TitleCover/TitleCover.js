@@ -21,9 +21,6 @@ function TitleCover() {
     const formDataThum = new FormData();
     const formDataCover = new FormData();
     formDataThum.append('images', upLoadThumnail);
-    // for (let i = 1; i <= Object.keys(upLoadCover).length; i++) {
-    //   formdataCover.append('images', upLoadCover.img[i]);
-    // }
     formDataCover.append('images', upLoadCover.img1);
     formDataCover.append('images', upLoadCover.img2);
     formDataCover.append('images', upLoadCover.img3);

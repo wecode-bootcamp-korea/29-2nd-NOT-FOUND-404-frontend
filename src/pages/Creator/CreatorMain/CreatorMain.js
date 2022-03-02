@@ -9,6 +9,9 @@ import CREATOR_MAIN_DATA from './creatorMainData';
 import theme from '../../../styles/theme';
 
 function CreatorMain() {
+  const goToMypage = () => {
+    window.location.replace('/creator/mypage');
+  };
   return (
     <>
       <Wrapper>
@@ -20,8 +23,8 @@ function CreatorMain() {
               <ColorOrange>3,864,865원</ColorOrange>을 정산받아요
             </H2>
             <Height />
-            <Button orangeBtn>
-              <Link to="/creator/mypage">3초만에 크리에이터 시작하기</Link>
+            <Button orangeBtn onClick={goToMypage}>
+              3초만에 크리에이터 시작하기
             </Button>
           </div>
           <VisualImg src={CREATOR_MAIN_DATA[0].mainImg} />

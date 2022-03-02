@@ -4,22 +4,12 @@ import theme from '../../../../../../styles/theme';
 import addImg from '../../../../img/add-photo-portrait.png';
 import Delete from '../../../../img/delete-2.svg';
 
-function LearnBox({
-  files,
-  setFiles,
-  values,
-  setValues,
-  index,
-  upLoadImg,
-  setUpLoadImg,
-  idx,
-}) {
+function LearnBox({ files, setFiles, setValues, index, setUpLoadImg }) {
   const saveFileImage = e => {
     setFiles(prev => ({
       ...prev,
       [e.target.name]: URL.createObjectURL(e.target.files[0]),
     }));
-
     setUpLoadImg(prev => ({
       ...prev,
       [e.target.name]: e.target.files[0],
@@ -45,10 +35,10 @@ function LearnBox({
   return (
     <BoxWarp>
       <ImgBox>
-        {files[`img${index - 1}`] ? (
+        {files[`img${index}`] ? (
           <>
             <FileImg />
-            <Img src={files[`img${index - 1}`]} />
+            <Img src={files[`img${index}`]} />
             <DeleteBtn onClick={deleteFileImage}>
               <Icon src={Delete} />
             </DeleteBtn>
@@ -59,7 +49,7 @@ function LearnBox({
               <AddImg src={addImg} />
               이미지를 첨부해주세요
               <input
-                name={`img${index - 1}`}
+                name={`img${index}`}
                 type="file"
                 accept="image/*"
                 id="check"
@@ -79,7 +69,7 @@ function LearnBox({
       <AccountBox
         type="text"
         placeholder="사진,영상에 대한 설명을 적어주세요."
-        id={`account${index - 1}`}
+        id={`account${index}`}
         onChange={saveText}
       />
     </BoxWarp>

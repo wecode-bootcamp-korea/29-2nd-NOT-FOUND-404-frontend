@@ -31,21 +31,21 @@ function CreatorIntroduction() {
   };
 
   const saveData = () => {
-    const formDataImg = new FormData();
-    const formDataName = new FormData();
-    const formDataDescription = new FormData();
+    const formData = new FormData();
+    formData.append('images', upLoadImg);
 
-    formDataImg.append('images', upLoadImg);
-    formDataName.append('name', name);
-    // formDataDescription.append('description', description);
+    formData.append(
+      'data',
+      JSON.stringify({ name: name, description: description })
+    );
 
-    fetch('http://54.165.180.52:8000/ccreators/register', {
-      method: 'PATCH',
+    fetch('http://54.165.180.52:8000/creators/register', {
+      method: 'POST',
       headers: {
         Authorization:
           'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MX0.laUV7-k5LNNxAxUajCXyjawCw9K2OinyQZMDzXKButY',
       },
-      body: formDataImg,
+      body: formData,
     })
       .then(res => res.json)
       .then(res => alert('저장되었습니다!'));

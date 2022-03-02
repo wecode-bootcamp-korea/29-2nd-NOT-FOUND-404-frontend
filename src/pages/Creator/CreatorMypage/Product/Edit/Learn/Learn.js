@@ -46,9 +46,9 @@ function Learn() {
               key={idx}
               files={files}
               setFiles={setFiles}
+              index={idx}
               values={values}
               setValues={setValues}
-              index={idx}
               upLoadImg={upLoadImg}
               setUpLoadImg={setUpLoadImg}
             />

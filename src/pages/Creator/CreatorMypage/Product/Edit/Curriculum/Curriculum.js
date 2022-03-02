@@ -10,14 +10,13 @@ function Curriculum() {
 
   const saveData = e => {
     const formData = new FormData();
-
     formData.append(JSON.stringify({ title: values }));
 
-    fetch('http://54.165.180.52:8000/creators/class-detail/1', {
+    fetch('http://54.165.180.52:8000/creators/curriculum/1', {
       method: 'POST',
       headers: {
-        Authorization:
-          'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MX0.laUV7-k5LNNxAxUajCXyjawCw9K2OinyQZMDzXKButY',
+        // Authorization:
+        //   'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MX0.laUV7-k5LNNxAxUajCXyjawCw9K2OinyQZMDzXKButY',
         // 'Content-Type': 'mulipart/form-data',
       },
       body: formData,

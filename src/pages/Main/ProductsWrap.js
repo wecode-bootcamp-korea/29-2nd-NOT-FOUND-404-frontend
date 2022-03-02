@@ -48,7 +48,7 @@ const ProductsWrap = () => {
         <ProductWrap>
           {products?.map(data => (
             <SwiperSlide key={data.id}>
-              <ProductLinkWrap to="/main">
+              <ProductLinkWrap to="/class/1">
                 <ProductTumWrap>
                   <ProductTum src={data.image_url} />
                   <CouponWrap>
@@ -122,13 +122,14 @@ const ProductTum = styled.img`
 const LikeIconBtn = styled.button`
   position: absolute;
   top: 13px;
-  right: 20px;
+  right: -30px;
   width: 21px;
   height: 21px;
 `;
 
 const LikeIconTxt = styled.span`
   font-size: 21px;
+  color: #fff;
 `;
 
 const CouponWrap = styled.div`

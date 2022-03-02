@@ -21,7 +21,7 @@ const menu = {
 
 function Edit() {
   const params = useParams();
-
+  console.log(window.location.pathname.includes('/mypage'));
   return (
     <div>
       <Body>

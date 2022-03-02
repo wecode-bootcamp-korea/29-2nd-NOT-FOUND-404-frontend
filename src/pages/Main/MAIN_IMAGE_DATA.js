@@ -16,7 +16,7 @@ export const MAIN_IMAGE_DATA = [
   },
   {
     id: 3,
-    img: '/images/bb.png',
+    img: '/images/3.jpg',
     desc: `하고싶은거 다 가능! 
     top50 최대 97%`,
     subDesc: '인기클래스! 눈으로 욕하는법 ',
