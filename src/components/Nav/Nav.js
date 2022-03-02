@@ -91,6 +91,10 @@ const Nav = () => {
     setBottomMenuDisplay('');
   };
 
+  if (window.location.pathname.includes('/mypage')) {
+    return null;
+  }
+
   return (
     <Wrap>
       {currentLocation ? (
